@@ -4,13 +4,10 @@ interface TechnologyCardProps {
   technology: Technology;
   onAddToStack:(technology:Technology)=>void;
 }
-
 const TechnologyCard = ({ technology,onAddToStack }: TechnologyCardProps) => {
   return (
     <div className="card bg-base-100 border border-base-300 shadow-sm hover:shadow-lg transition duration-300">
-      
-      {/* Icon + Badge */}
-      <div className="flex items-center justify-between p-5">
+ <div className="flex items-center justify-between p-5">
         <img
           src={technology.icon}
           alt={technology.name}
@@ -29,13 +26,11 @@ const TechnologyCard = ({ technology,onAddToStack }: TechnologyCardProps) => {
           {technology.name}
         </h2>
 
-        <p className="text-base-content/70">
+        <p className="text-[#64748B]">
           {technology.description}
         </p>
-
-        {/* Category + Difficulty */}
-        <div className="flex gap-2 mt-2">
-          <div className="badge badge-outline">
+<div className="flex gap-2 mt-2">
+          <div className="badge badge-outline bg-[#F1F5F9]">
             {technology.category}
           </div>
 
@@ -44,7 +39,7 @@ const TechnologyCard = ({ technology,onAddToStack }: TechnologyCardProps) => {
           </div>
         </div>
 
-        {/* Rating */}
+        
         <div className="mt-2">
           <span className="text-yellow-500">★</span>
           <span className="ml-1 font-semibold">
@@ -52,10 +47,10 @@ const TechnologyCard = ({ technology,onAddToStack }: TechnologyCardProps) => {
           </span>
         </div>
 
-        {/* Button */}
-        <div className="card-actions mt-3">
-          <button className="btn btn-primary w-full" onClick={() => onAddToStack(technology)}>
-            Add to Stack
+     
+        <div className="card mt-3">
+          <button className="btn bg-[#0A0F1D] w-full hover-3d rounded-1xl" onClick={() => onAddToStack(technology)}>
+            <h2 className="text-[#FFFFFF]">Add to Stack</h2>
           </button>
         </div>
 

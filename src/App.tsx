@@ -5,6 +5,7 @@ import Hero from "./components/Hero";
 import Technologies from "./components/technologyies/Technologies"
 import type { Technology } from "./types/Technology"
 import { Suspense } from "react";
+import YourStack from "./components/technologyies/YourStack";
 
 
 
@@ -25,7 +26,7 @@ function App() {
       <Suspense fallback={<p>Loading...</p>}>
         <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
-     
+    
     </>
   )
 }
