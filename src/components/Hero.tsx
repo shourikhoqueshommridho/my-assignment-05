@@ -10,9 +10,9 @@ const Hero = () => {
             </span>
           </h1>
 <p className="mt-6 text-base sm:text-lg text-gray-600 leading-8 max-w-xl mx-auto lg:mx-0">
-            Explore powerful technologies, compare their features,
-            and build the perfect development stack for your next
-            project.
+          Explore frontend, backend, database, and tooling options,
+compare them side by side, and put together the stack that fits your
+next project.
   </p>
  <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 mt-8">
              <button

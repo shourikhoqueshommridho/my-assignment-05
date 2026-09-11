@@ -7,6 +7,7 @@ import type { Technology } from "./types/Technology"
 import { Suspense } from "react";
 
 
+
 const TechnologiesFetch = async (): Promise<Technology[]> => {
   const res = await fetch("/technologies.json");
   const data = await res.json();
@@ -24,7 +25,7 @@ function App() {
       <Suspense fallback={<p>Loading...</p>}>
         <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
-      
+     
     </>
   )
 }
