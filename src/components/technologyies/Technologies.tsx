@@ -1,4 +1,4 @@
-import { use, type SetStateAction } from "react";
+import { use, type Dispatch, type SetStateAction } from "react";
 import type { Technology } from "../../types/Technology";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
@@ -6,6 +6,7 @@ import { useState } from "react";
 
 interface TechnologiesProps {
   technologiesPromise: Promise<Technology[]>;
+  setSelectedTechnologies:Dispatch<SetStateAction<Technology[]>>
 }
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {

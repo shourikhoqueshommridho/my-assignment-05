@@ -1,11 +1,11 @@
 
-import { useState } from "react"
+import { useState} from "react"
 import Nav from "./components/Nav"
 import Hero from "./components/Hero";
 import Technologies from "./components/technologyies/Technologies"
 import type { Technology } from "./types/Technology"
 import { Suspense } from "react";
-import YourStack from "./components/technologyies/YourStack";
+
 
 
 
@@ -24,7 +24,9 @@ function App() {
      <Nav />
 <Hero/>
       <Suspense fallback={<p>Loading...</p>}>
-        <Technologies technologiesPromise={technologiesPromise} />
+        <Technologies technologiesPromise={technologiesPromise} setSelectedTechnologies={function (): void {
+          throw new Error("Function not implemented.");
+        } } />
       </Suspense>
     
     </>

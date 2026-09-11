@@ -39,7 +39,7 @@ const handleRemoveTechnology=(technology:Technology)=>{
           <div className="space-y-3 grid grid-cols-1 g">
             {selectedTechnologies.map((technology) => (
               <div key={technology.id} className='flex gap-2  items-center border-2 border-gray-200 rounded-2xl py-2 px-4'>
-                <img src={technology.icon} alt=""  className="h-[50px] w-[50px]"/>
+                <img src={technology.icon} alt=""  className="h-12.5 w-12.5"/>
                 
                 <div >
                     <h2 className="font-bold">{technology.name}</h2>
