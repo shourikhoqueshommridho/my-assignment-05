@@ -59,11 +59,13 @@ const handleRemoveAll = () => {
             ))}
           </div>
         )}
-
-        <button className="btn btn-outline btn-error w-full"
+{selectedTechnologies.length>0 && (
+   <button className="btn btn-outline btn-error w-full"
         onClick={handleRemoveAll}>
           Remove All
         </button>
+)}
+       
 
       </div>
     </div>

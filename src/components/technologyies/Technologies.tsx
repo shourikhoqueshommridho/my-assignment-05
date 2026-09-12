@@ -27,7 +27,7 @@ const handleAddToStack = (technology: Technology) => {
       
       <div className=" mb-5">
         <h2 className="text-3xl font-bold">
-          Explore  <span className="bg-linear-to-r from-[#EC4899] to-[#8B5CF6] bg-clip-text text-transparent">Technologies</span>
+          Explore  <span className=" bg-linear-to-r from-orange-500 via-pink-500 to-violet-600 bg-clip-text text-transparent">Technologies</span>
         </h2>
 
         <p className="text-gray-500 mt-2">
