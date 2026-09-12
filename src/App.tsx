@@ -5,6 +5,8 @@ import Hero from "./components/Hero";
 import Technologies from "./components/technologyies/Technologies"
 import type { Technology } from "./types/Technology"
 import { Suspense } from "react";
+import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
 
 
@@ -16,6 +18,8 @@ const TechnologiesFetch = async (): Promise<Technology[]> => {
   return data;
 };
 function App() {
+  const [selectedTechnologies, setSelectedTechnologies] =
+  useState<Technology[]>([]);
   const [technologiesPromise]=useState(() =>TechnologiesFetch());
 
   return (
@@ -24,11 +28,14 @@ function App() {
      <Nav />
 <Hero/>
       <Suspense fallback={<p>Loading...</p>}>
-        <Technologies technologiesPromise={technologiesPromise} setSelectedTechnologies={function (): void {
-          throw new Error("Function not implemented.");
-        } } />
+        <Technologies
+  technologiesPromise={technologiesPromise}
+          selectedTechnologies={selectedTechnologies}
+          setSelectedTechnologies={setSelectedTechnologies}
+/>
       </Suspense>
-    
+    <ToastContainer />
+    <Footer/>
     </>
   )
 }

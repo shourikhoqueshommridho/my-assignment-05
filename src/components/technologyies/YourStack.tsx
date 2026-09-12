@@ -1,16 +1,22 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { Technology } from "../../types/Technology";
 import { IoMdClose } from "react-icons/io";
-
+import { toast } from "react-toastify";
 interface YourStackProps {
   selectedTechnologies: Technology[];
   setSelectedTechnologies:Dispatch<SetStateAction<Technology[]>>
 }
 const YourStack = ({selectedTechnologies,setSelectedTechnologies}:YourStackProps) => {
 const handleRemoveTechnology=(technology:Technology)=>{
-    const RemoveTechnology=selectedTechnologies.filter(selectedTechnology=>selectedTechnology.name != technology.name);
-    setSelectedTechnologies(RemoveTechnology)
+    const RemoveTechnology=selectedTechnologies.filter(selectedTechnology=>selectedTechnology.id != technology.id);
+    setSelectedTechnologies(RemoveTechnology);
+    toast.info(`${technology.name} removed from your stack`);
 }
+const handleRemoveAll = () => {
+  setSelectedTechnologies([]);
+
+  toast.info("All technologies removed from your stack");
+};
   return (
     <div className="card bg-base-100 border border-base-300 shadow-sm sticky top-24">
       <div className="card-body">
@@ -36,7 +42,7 @@ const handleRemoveTechnology=(technology:Technology)=>{
             </p>
           </div>
         ) : (
-          <div className="space-y-3 grid grid-cols-1 g">
+          <div className="space-y-3 grid grid-cols-1 ">
             {selectedTechnologies.map((technology) => (
               <div key={technology.id} className='flex gap-2  items-center border-2 border-gray-200 rounded-2xl py-2 px-4'>
                 <img src={technology.icon} alt=""  className="h-12.5 w-12.5"/>
@@ -46,7 +52,7 @@ const handleRemoveTechnology=(technology:Technology)=>{
                     <h2>{technology.category}</h2>
                     
                 </div>
-<div className="mx-12">
+<div className="ml-auto">
     <span className='text-red-500 font-bold cursor-pointer' onClick={()=>handleRemoveTechnology(technology)}><IoMdClose /></span>
 </div>
               </div>
@@ -55,7 +61,7 @@ const handleRemoveTechnology=(technology:Technology)=>{
         )}
 
         <button className="btn btn-outline btn-error w-full"
-        onClick={() => setSelectedTechnologies([])}>
+        onClick={handleRemoveAll}>
           Remove All
         </button>
 

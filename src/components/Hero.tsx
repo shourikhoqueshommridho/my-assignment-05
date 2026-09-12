@@ -33,7 +33,7 @@ Learn More
 </div>
  </div>
 <div className="w-full lg:w-1/2 flex justify-center">
- <img src="/banner-stack.png" alt="" />
+ <img src="/banner-stack.png" alt="Development technology stack illustration" />
 </div>
  </div>
 </section>

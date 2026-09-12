@@ -2,21 +2,25 @@ import { use, type Dispatch, type SetStateAction } from "react";
 import type { Technology } from "../../types/Technology";
 import TechnologyCard from "./TechnologyCard";
 import YourStack from "./YourStack";
-import { useState } from "react";
+import { toast } from "react-toastify";
+
 
 interface TechnologiesProps {
   technologiesPromise: Promise<Technology[]>;
-  setSelectedTechnologies:Dispatch<SetStateAction<Technology[]>>
+  selectedTechnologies: Technology[];
+  setSelectedTechnologies: Dispatch<SetStateAction<Technology[]>>;
 }
 
-const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
+const Technologies = ({ technologiesPromise,selectedTechnologies,
+  setSelectedTechnologies }: TechnologiesProps) => {
   const technologies = use(technologiesPromise);
-const [selectedTechnologies, setSelectedTechnologies] = useState<Technology[]>([]);
+
 const handleAddToStack = (technology: Technology) => {
   setSelectedTechnologies((pre) => [
     ...pre,
     technology,
   ]);
+   toast.success(`${technology.name} added to your stack!`);
 };
   return (
     <section className="max-w-7xl mx-auto px-6">
@@ -33,17 +37,19 @@ const handleAddToStack = (technology: Technology) => {
 
      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
-  {/* Technology Cards */}
+ 
   <div className="lg:col-span-3">
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-
-      {technologies.map((technology) => (
-        <TechnologyCard
-          key={technology.id}
-          technology={technology}
-          onAddToStack={handleAddToStack}
-        />
-      ))}
+{technologies.map((technology) => (
+  <TechnologyCard
+    key={technology.id}
+    technology={technology}
+    onAddToStack={handleAddToStack}
+    isAdded={selectedTechnologies.some(
+      item => item.id === technology.id
+    )}
+  />
+))}
 
     </div>
   </div>
